@@ -6,6 +6,7 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 
 const categories = require('./data/catagories.json');
+const news = require('./data/news.json');
 
 app.get('/', (req, res) => {
     res.send("News API is Running..");
@@ -13,6 +14,10 @@ app.get('/', (req, res) => {
 
 app.get('/news-categories', (req, res) => {
     res.send(categories);
+})
+
+app.get('/news', (req, res) => {
+    res.send(news);
 })
 
 app.listen(port, () => {
